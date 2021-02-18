@@ -23,7 +23,7 @@ void *sendMsg()
     for(;;) {
     int stat;
     memset(sendBuffer, 0, sizeof(sendBuffer));
-    printf("Enter Message : ");
+    // printf("Enter Message : ");
     fgets(sendBuffer, MAXLENGTH , stdin);
     stat = send(connection_fd, sendBuffer, strlen(sendBuffer), 0);
     }

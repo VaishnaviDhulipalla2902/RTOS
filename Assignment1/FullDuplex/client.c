@@ -20,7 +20,7 @@ void *sendMsg()
     {
         int stat;
         memset(sendBuffer, 0, sizeof(sendBuffer));
-        printf("Your Message : ");
+        // printf("Your Message : ");
         fgets(sendBuffer, MAXLENGTH, stdin);
         stat = send(socket_fd, sendBuffer, strlen(sendBuffer), 0);
     }
@@ -35,7 +35,7 @@ void *recvMsg()
         memset(recvBuffer, 0, sizeof(recvBuffer));
         msg = recv(socket_fd, recvBuffer, MAXLENGTH, 0);
         printf("%s", recvBuffer);
-        printf("Your Message : ");
+        // printf("Your Message : ");
     }
 }
 
