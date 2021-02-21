@@ -8,7 +8,7 @@
 #include <pthread.h>
 #include "message.h"
 
-int socket_fd;
+int socket_fd; 
 pthread_t read_thread;
 message myMessage;
 
@@ -94,7 +94,7 @@ int main(int argc, char *argv[])
         // scanf("%d", &myMessage.message_type);
         fgets(type, sizeof(type), stdin);
         myMessage.message_type = atoi(type);
-        if(atoi(type) == 0)
+        if(atoi(type) == 0) // personal message
         {
             printf("To: ");
             fgets(to, sizeof(to), stdin);
@@ -102,7 +102,7 @@ int main(int argc, char *argv[])
             strcpy(myMessage.receiver, to);
 
         }
-        send(socket_fd, &myMessage, sizeof(myMessage), 0);
+        send(socket_fd, &myMessage, sizeof(myMessage), 0); // Type = 1 => broadcast message i.e to the entire group.
     }
 
     // pthread_kill(read_thread, NULL);

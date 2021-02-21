@@ -6,7 +6,7 @@
 #include <unistd.h>
 #include <signal.h>
 #include <pthread.h>
-
+ 
 #define MAXLENGTH 100
 
 char sendBuffer[MAXLENGTH] = {0};

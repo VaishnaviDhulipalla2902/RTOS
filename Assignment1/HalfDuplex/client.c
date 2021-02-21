@@ -8,7 +8,7 @@
 
 
 #define MAXLENGTH 100
-
+ 
 char sendBuffer[MAXLENGTH] = {0};
 char recvBuffer[MAXLENGTH] = {0};
 int socket_fd;

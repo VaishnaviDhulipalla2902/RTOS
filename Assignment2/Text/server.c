@@ -26,7 +26,7 @@ char members[MAX_MEMBERS][20] = {0};
 // int connectionCount[MAX_GROUPS_NUM];
 int memberCount = 0;
 int socket_fd = 0;  
-// int connection_fd = 0;
+// int connection_fd = 0; 
 
 
 
@@ -134,7 +134,7 @@ void *clientHandler(void *socket_fd){
             if(recvMessage.message_type){
                 for(int j=0;j<memberCount;j++){
                     if(strcmp(members[j], recvMessage.sender) != 0){
-                        send(members_socks[j], &recvMessage, sizeof(recvMessage),0); 
+                        send(members_socks[j], &recvMessage, sizeof(recvMessage),0); // Broadcast message as type is 1.
                     }
                 }
             }
@@ -149,13 +149,13 @@ void *clientHandler(void *socket_fd){
                     }
                     if(strcmp(members[j], recvMessage.sender) == 0){
                         from = members_socks[j];
-                    }
+                    } // Personal message
                 }
                 if(!flag)
                 {
                     strcpy(not_found.message, "User not found\n");
                     send(from, &not_found, sizeof(not_found), 0);
-                    printf("No user registered with name %s\n", recvMessage.receiver);
+                    printf("No user registered with name %s\n", recvMessage.receiver); // User not found.
                 }
             }
         }
